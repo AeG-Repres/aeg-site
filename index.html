@@ -5,6 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AeG Representação - Construção Civil</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Text&family=Markazi+Text:wght@400;500&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Playfair+Display:wght@600&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Gothic+A1:wght@400&family=Roboto+Serif:wght@600&display=swap" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -25,17 +33,43 @@
             padding: 0 20px;
         }
         
-        /* Header */
-        header {
-            background: linear-gradient(135deg, #1a1a1a 0%, #2d3748 100%);
-            color: white;
-            padding: 1rem 0;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
+        /* LOGO e HEADER */
+		header {
+		  background: transparent;
+		  color: white;
+		  padding: 1rem 0;
+		  position: fixed;
+		  width: 100%;
+		  top: 0;
+		  z-index: 1000;
+		  transition: background-color 0.3s ease, box-shadow 0.3s ease;
+		}
+
+		/* Quando rolar, essa classe será adicionada via JavaScript */
+		header.scrolled {
+		  background-color: #000000;
+		  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+		}
+
+		.logo {
+		  display: flex;
+		  align-items: center;
+		  font-family: 'Segoe UI', Tahoma, sans-serif; /* fonte personalizada */
+		  font-size: 1.3rem; /* diminui o tamanho do texto */
+		  font-weight: bold;
+		  color: white;
+		}
+
+		.logo img {
+		  height: 55px; /* aumenta o tamanho da logo */
+		  margin-right: 10px;
+		  border-radius: 8px; /* opcional: arredonda bordas se quiser */
+		}
+
+		.logo span {
+		  color: white;
+		}
+        
         
         nav {
             display: flex;
@@ -43,21 +77,19 @@
             align-items: center;
         }
         
-        .logo {
-            font-size: 1.8rem;
-            font-weight: bold;
-            color: #4a90e2;
-        }
+    
         
         .nav-links {
             display: flex;
             list-style: none;
             gap: 2rem;
+			margin-left: auto; 
         }
         
         .nav-links a {
             color: white;
             text-decoration: none;
+			font-weight: 500;
             transition: color 0.3s;
         }
         
@@ -66,18 +98,64 @@
         }
         
         /* Hero Section */
-        .hero {
-            height: 100vh;
-            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><rect fill="%23374151" width="1200" height="800"/><polygon fill="%23475569" points="0,800 400,600 800,650 1200,500 1200,800"/><polygon fill="%23374151" points="0,600 300,400 600,450 900,300 1200,400 1200,600"/></svg>');
-            background-size: cover;
-            background-position: center;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: white;
-        }
-        
+		.hero {
+		  height: 100vh;
+		  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+					  url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Image_fx.png');
+		  background-size: cover;
+		  background-position: center;
+		  display: flex;
+		  align-items: flex-end;
+		  justify-content: center;
+		  padding-bottom: 100px;
+		  position: relative;
+		}
+
+		.hero-box {
+		  background: white;
+		  padding: 20px 20px;
+		  border-radius: 0px;
+		  text-align: center;
+		  max-width: 800px;
+		  width: 90%;
+		  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+		  margin-bottom: -110px;
+		}
+
+		.hero-box h1 {
+		  font-family: 'DM Serif Text', serif;
+		  font-size: 3.7rem; /* maior e mais impactante */
+		  font-weight: 400;
+		  color: #111;
+		  line-height: 1.1;
+		  margin-bottom: 0px;
+		}
+
+		.hero-box p {
+		  font-family: 'Markazi Text', serif;
+		  font-size: 2.9rem; /* aumentada */
+		  font-weight: 400;
+		  color: #111;
+		  margin-bottom: 0px;
+		}
+
+		.cta-button-outline {
+		  display: inline-block;
+		  padding: 12px 30px;
+		  border: 2px solid #000;
+		  background: transparent;
+		  color: #000;
+		  text-decoration: none;
+		  font-weight: 500;
+		  font-size: 1rem;
+		  border-radius: 40px;
+		  transition: all 0.3s ease;
+		}
+
+		.cta-button-outline:hover {
+		  background: #000;
+		  color: white;
+		}
         .hero-content h1 {
             font-size: 3.5rem;
             margin-bottom: 1rem;
@@ -104,162 +182,315 @@
         .cta-button:hover {
             background: #357abd;
         }
-        
+        /*---------------------------------------------Sessão sobre----------------------------------------------------------*/
         /* About Section */
-        .about {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
-        
-        .about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            align-items: center;
-        }
-        
-        .about-text h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            color: #2d3748;
-        }
-        
-        .about-text p {
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-            line-height: 1.8;
-        }
-        
-        .about-image {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            height: 400px;
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.2rem;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .about-image::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect fill="rgba(255,255,255,0.1)" width="2" height="100" x="10"/><rect fill="rgba(255,255,255,0.1)" width="2" height="100" x="30"/><rect fill="rgba(255,255,255,0.1)" width="2" height="100" x="50"/><rect fill="rgba(255,255,255,0.1)" width="2" height="100" x="70"/><rect fill="rgba(255,255,255,0.1)" width="2" height="100" x="90"/></svg>');
-            background-size: 100px 100px;
-        }
-        
+        .sobre-nos {
+		  background-color: #f8f9fa;
+		  padding: 80px 20px;
+		}
+
+		.sobre-wrapper {
+		  display: flex;
+		  flex-wrap: wrap;
+		  align-items: center;
+		  justify-content: space-between;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  gap: 20px;
+		}
+
+		.sobre-texto {
+		  flex: 1;
+		  min-width: 300px;
+		  font-family: 'Roboto Serif', Serif;
+		  color: #111;
+		  font-weight: 400;
+		}
+
+		.sobre-texto h2 {
+		  font-family: 'Oswald', sans-serif;
+		  font-weight: 500;
+		  font-size: 2.2rem;
+		  margin-bottom: 20px;
+		  color: #000;
+		  border-bottom: 2px solid #e0e0e0;
+		padding-bottom: 10px;
+		}
+
+		.sobre-texto p {
+		  font-size: 1.15rem;
+		  line-height: 1.75;
+		  margin-bottom: 18px;
+		}
+
+		.sobre-texto strong {
+		  font-weight: 600;
+		}
+
+		.sobre-imagem {
+		  flex: 1;
+		  min-width: 550px;
+		  display: flex;
+		  justify-content: center;
+		}
+
+		.sobre-imagem img {
+		  width: 100%;
+		  max-width: 500px;
+		  border-radius: 12px;
+		  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+		}
+		.sobre-texto, .sobre-imagem {
+		  opacity: 0;
+		  transform: translateY(30px);
+		  transition: all 0.6s ease;
+		}
+		.sobre-nos.show .sobre-texto,
+		.sobre-nos.show .sobre-imagem {
+		  opacity: 1;
+		  transform: translateY(0);
+		}
+
+        /*-------------------------------------------------socio-----------------------------------------------------*/
         /* Founders Section */
-        .founders {
-            padding: 80px 0;
-            background: white;
-        }
+		.socios {
+		  padding: 80px 20px;
+		  text-align: center;
+		  background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+		  background-size: cover;
+		  background-position: center;
+		  background-attachment: fixed;
+		  background-repeat: no-repeat;
+		}
+
+
+		.socios h2 {
+		  font-family: 'Oswald', sans-serif;
+		  font-size: 3rem;
+		  margin-bottom: 60px;
+		  text-align: center; /* ← garante que o título fique centralizado */
+		}
+
+		.socios-container {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  gap: 60px;
+		}
+
+		.card-socio {
+		  background: #f9f9f9;
+		  padding: 30px 20px;
+		  border-radius: 20px;
+		  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+		  max-width: 600px;
+		  width: 100%;
+		  text-align: center; /* ← centraliza tudo dentro */
+		  transition: transform 0.3s ease;
+		  min-height: 420px; /* ← altura mínima para dar “corpo” ao card */
+		}
+
+		.card-socio:hover {
+		  transform: translateY(-6px);
+		}
+
+		.socio-foto {
+		  width: 140px;
+		  height: 140px;
+		  object-fit: cover;
+		  border-radius: 50%;
+		  margin-bottom: 25px;
+		  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+		  display: block;
+		  margin-left: auto;
+		  margin-right: auto;
+		}
+
+		.card-socio h3 {
+		  font-size: 1.8rem;
+		  margin-bottom: 10px;
+		  font-weight: 600;
+		  color: #111;
+		}
+
+		.card-socio .subtitulo {
+		  color: #1a5bd1;
+		  font-weight: 500;
+		  font-size: 1.1rem;
+		  margin-bottom: 15px;
+		}
+
+		.card-socio p {
+		  font-size: 1.05rem;
+		  line-height: 1.5;
+		  margin-bottom: 6px;
+		  color: #333;
+		}
+
+
+		
+		
+        /*------------------------------------------------serviço-----------------------------------------------*/
         
-        .founders h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            color: #2d3748;
-        }
-        
-        .founders-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-        }
-        
-        .founder-card {
-            background: #f8f9fa;
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s;
-        }
-        
-        .founder-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .founder-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
-            margin: 0 auto 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-        }
-        
-        .founder-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 0.5rem;
-            color: #2d3748;
-        }
-        
-        .founder-card .title {
-            color: #4a90e2;
-            font-weight: bold;
-            margin-bottom: 1rem;
-        }
-        
-        .founder-card p {
-            line-height: 1.6;
-            margin-bottom: 0.5rem;
-        }
-        
-        /* Services Section */
-        .services {
-            padding: 80px 0;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-        }
-        
-        .services h2 {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-        }
-        
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .service-card {
-            background: rgba(255,255,255,0.1);
-            padding: 2rem;
-            border-radius: 10px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255,255,255,0.2);
-            transition: transform 0.3s;
-        }
-        
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-        
-        .service-icon {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            color: #4a90e2;
-        }
-        
-        .service-card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
+        /* Pilares Section */
+		.pilares {
+		  background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+		  background-size: cover;
+		  background-position: center;
+		  background-attachment: fixed;
+		  padding: 100px 20px;
+		  position: relative;
+		}
+
+		.pilares::before {
+		  content: "";
+		  position: absolute;
+		  top: 0; left: 0; right: 0; bottom: 0;
+		  background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(50,50,50,0.9));
+		  z-index: 0;
+		}
+
+		.pilares-container {
+		  position: relative;
+		  z-index: 1;
+		  max-width: 1200px;
+		  margin: 0 auto;
+		  text-align: center;
+		  color: #fff;
+		}
+
+		.pilares-container h3 {
+		  font-family: 'Oswald', sans-serif;
+		  font-size: 1.9rem;
+		  font-weight: 400;
+		  margin-bottom: 10px;
+		  color: #fff;
+		}
+		.titulo-pilares {
+		  font-family: 'Playfair Display', serif;
+		  font-size: 1.6rem;
+		  font-weight: 600;
+		  position: relative;
+		  display: inline-block;
+		  margin-top: -40px;
+		  margin-bottom: 30px;
+		  color: #ccc;
+		}
+
+		.titulo-pilares .linha-decorativa::before,
+		.titulo-pilares .linha-decorativa::after {
+		  content: '';
+		  position: absolute;
+		  height: 2px;
+		  background: #ffffff; /* cor da linha */
+		  transition: width 0.8s ease;
+		  width: 0;
+		}
+
+		.titulo-pilares .linha-decorativa::before {
+		  bottom: -10px;
+		  left: 0;
+		  width: 0;
+		  height: 4px; /* linha de baixo mais grossa */
+		  animation: linha-baixo 1s forwards;
+		}
+
+		.titulo-pilares .linha-decorativa::after {
+		  top: -10px;
+		  right: 0;
+		  width: 0;
+		  height: 2px; /* linha de cima mais fina */
+		  animation: linha-cima 1s forwards 1s; /* começa depois da de baixo */
+		}
+
+		/* Animações */
+		@keyframes linha-baixo {
+		  from {
+			width: 0;
+			right: 0;
+			left: auto;
+		  }
+		  to {
+			width: 100%;
+			left: 0;
+			right: auto;
+		  }
+		}
+
+		@keyframes linha-cima {
+		  from {
+			width: 0;
+			left: 0;
+			right: auto;
+		  }
+		  to {
+			width: 100%;
+			right: 0;
+			left: auto;
+		  }
+		}
+
+
+		.pilares-container h2 {
+		  font-size: 2rem;
+		  font-weight: 700;
+		  margin-bottom: 60px;
+		}
+
+		.pilares-grid {
+		  display: flex;
+		  flex-wrap: wrap;
+		  justify-content: center;
+		  gap: 40px;
+		}
+
+		.pilar {
+		  flex: 1 1 300px;
+		  max-width: 350px;
+		  padding: 30px 25px;
+		  background: rgba(255,255,255,0.06);
+		  border-radius: 16px;
+		  backdrop-filter: blur(4px);
+		  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+		}
+
+		.pilar-icon {
+		  font-size: 2.5rem;
+		  margin-bottom: 20px;
+		}
+
+		.pilar h4 {
+		  font-size: 1.3rem;
+		  margin-bottom: 12px;
+		  font-weight: 600;
+		  color: #fff;
+		}
+
+		.pilar p {
+		  font-size: 1rem;
+		  line-height: 1.6;
+		  color: #eee;
+		}
+		/*----------------animação----------------------------------------------*/
+		/* Sem animação por padrão */
+		.titulo-pilares .linha-decorativa::before,
+		.titulo-pilares .linha-decorativa::after {
+		  animation: none;
+		}
+
+		/* Só anima quando classe "animate" for adicionada via JS */
+		.titulo-pilares.animate .linha-decorativa::before {
+		  animation: linha-baixo 1s forwards;
+		}
+
+		.titulo-pilares.animate .linha-decorativa::after {
+		  animation: linha-cima 1s forwards 1s;
+		}
+
+
+		/*-----------------------------------------------------------------------*/
+        /*------------------------------Contato--------------------------------*/
+		
         /* Contact Section */
         .contact {
             padding: 80px 0;
@@ -428,12 +659,23 @@
                 text-align: center;
             }
         }
+		/*-----------------------------espaço em branco----------------------*/
+		.espaco-branco {
+		  height: 40px; /* ou 100px se quiser mais espaço */
+		  background-color: #fff; /* mesma cor da seção */
+		}
+		
+		
+		
     </style>
 </head>
 <body>
     <header>
         <nav class="container">
-            <div class="logo">AeG Representação</div>
+            <div class="logo">
+			<img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/teste2-Photoroom%20(1).png" alt="Logo AeG">
+			<span>AeG Representação</span>
+			</div>
             <ul class="nav-links">
                 <li><a href="#inicio">Início</a></li>
                 <li><a href="#sobre">Sobre</a></li>
@@ -445,87 +687,93 @@
     </header>
 
     <section id="inicio" class="hero">
-        <div class="hero-content">
-            <h1>AeG Representação</h1>
-            <p>Estratégia e resultado para empresas da construção civil</p>
-            <a href="#contato" class="cta-button">Fale Conosco</a>
-        </div>
+			  <div class="hero-box">
+		<h1>
+			Conectando fornecedores a<br>
+			construção civil
+		</h1>
+				<p>Transforme seu negócio na construção civil</p>
+				<a href="#contato" class="cta-button-outline">Fale Conosco</a>
+			</div>
     </section>
 
-    <section id="sobre" class="about">
-        <div class="container">
-            <div class="about-content">
-                <div class="about-text">
-                    <h2>Sobre a AeG Representação</h2>
-                    <p>Empresa fundada por <strong>Gilmar Soares</strong> e <strong>Anderson Santos</strong>, com foco em representar empresas do setor da construção civil com estratégia e resultado.</p>
-                    <p>Nossa atuação abrange <strong>marketing estratégico</strong>, <strong>presença em campo</strong> e desenvolvimento de <strong>parcerias duradouras</strong>.</p>
-                    <p>Conectamos fornecedores às demandas reais do mercado, aplicando tecnologia e gestão para impulsionar o setor da construção civil.</p>
-                </div>
-                <div class="about-image">
-                    <span>Imagem da empresa será inserida aqui</span>
-                </div>
-            </div>
-        </div>
-    </section>
+		<section class="sobre-nos" id="sobre">
+		  <div class="sobre-wrapper">
+			<div class="sobre-texto">
+			  <h2>🏗️ Sobre a AeG Representação</h2>
+			  <p><strong>A AeG Representação</strong> é uma empresa especializada em conectar fornecedores da construção civil com obras, construtores e compradores reais.</p>
+			  <p>Fundada em <strong>João Pessoa – PB</strong> pelos sócios <strong>Gilmar e Anderson</strong>, nossa missão é transformar a representação comercial em um <strong>elo estratégico</strong>, gerando resultados reais para quem vende e para quem constrói.</p>
+			  <p>Atuamos com <strong>presença ativa em campo</strong>, <strong>marketing direcionado</strong> e <strong>relacionamento próximo</strong>, entendendo de fato as necessidades do setor.</p>
+			  <p>Representamos empresas que oferecem <strong>soluções, materiais e inovações</strong> voltadas ao canteiro de obras — sempre com foco em <strong>parcerias sólidas</strong>, <strong>desempenho comercial</strong> e <strong>crescimento sustentável</strong> no mercado.</p>
+			</div>
+			<div class="sobre-imagem">
+			  <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Image_fx%20(3).jpg" alt="Imagem institucional da AeG Representação">
+			</div>
+		  </div>
+		</section>
+			<div class="espaco-branco"></div>
+    <section class="socios" id="socios">
+		  <h2>Sócios Fundadores</h2>
+		  <div class="socios-container">
+			
+				<!-- Anderson Santos -->
+				<div class="card-socio">
+				  <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Anderson.jpeg" alt="Anderson Santos" class="socio-foto">
+				  <h3>Anderson Santos</h3>
+				  <p class="subtitulo">Marketing com Método. Gestão com Propósito.</p>
+				  <p>Mentor de negócios e gestor de tráfego com método próprio</p>
+				  <p><strong>R$ 2,5 milhões em vendas no digital</strong></p>
+				  <p>Idealizador do ArqDesign</p>
+				  <p>Atua com estratégia, posicionamento e geração de resultado</p>
+				</div>
 
-    <section id="socios" class="founders">
-        <div class="container">
-            <h2>Sócios Fundadores</h2>
-            <div class="founders-grid">
-                <div class="founder-card">
-                    <div class="founder-image">
-                        <i class="fas fa-user"></i>
-                    </div>
-                    <h3>Anderson Santos</h3>
-                    <p class="title">Marketing com Método. Gestão com Propósito.</p>
-                    <p>Mentor de negócios e gestor de tráfego com método próprio</p>
-                    <p><strong>R$ 2,5 milhões em vendas no digital</strong></p>
-                    <p>Idealizador do ArqDesign</p>
-                    <p>Atua com estratégia, posicionamento e geração de resultado</p>
-                </div>
-                <div class="founder-card">
-                    <div class="founder-image">
-                        <i class="fas fa-laptop-code"></i>
-                    </div>
-                    <h3>Gilmar Soares</h3>
-                    <p class="title">Tecnologia, gestão e inovação no setor da construção</p>
-                    <p>Formado em Redes de Computadores</p>
-                    <p>Experiência técnica e prática em comércio e construção civil</p>
-                    <p>Aplica gestão e tecnologia para impulsionar o setor</p>
-                    <p>Conecta tradição à inovação com propósito</p>
-                </div>
-            </div>
-        </div>
-    </section>
+				<!-- Gilmar Soares -->
+				<div class="card-socio">
+				  <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Gilmar.jpg" alt="Gilmar Soares" class="socio-foto">
+				  <h3>Gilmar Soares</h3>
+				  <p class="subtitulo">Tecnologia, gestão e inovação no setor da construção</p>
+				  <p>Formado em Redes de Computadores</p>
+				  <p>Experiência técnica e prática em comércio e construção civil</p>
+				  <p>Aplica gestão e tecnologia para impulsionar o setor</p>
+				  <p>Conecta tradição à inovação com propósito</p>
+			</div>
 
-    <section id="servicos" class="services">
-        <div class="container">
-            <h2>Potencialize suas vendas na construção civil</h2>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-bullhorn"></i>
-                    </div>
-                    <h3>Marketing Estratégico</h3>
-                    <p>Posicionamos sua marca com estratégia, visibilidade e presença local.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <h3>Conexão com Construtores</h3>
-                    <p>Atuamos direto no campo, conectando fornecedores às demandas reais.</p>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-chart-line"></i>
-                    </div>
-                    <h3>Representação Comercial</h3>
-                    <p>Representamos empresas com soluções de valor e foco em resultados.</p>
-                </div>
-            </div>
-        </div>
-    </section>
+		  </div>
+	</section>
+
+
+	<section class="pilares" id="pilares">
+	  <div class="pilares-container">
+		<h3 class="titulo-pilares">
+		  Nossos Pilares de Atuação
+		  <span class="linha-decorativa"></span>
+		</h3>
+		<h2><strong>Atuação estratégica para impulsionar seus resultados</strong></h2>
+
+		<div class="pilares-grid">
+		  <!-- Pilar 1 -->
+		  <div class="pilar">
+			<div class="pilar-icon">📊</div>
+			<h4>Marketing Estratégico</h4>
+			<p>Posicionamos sua marca com estratégia, visibilidade e comunicação alinhada ao setor da construção.</p>
+		  </div>
+
+		  <!-- Pilar 2 -->
+		  <div class="pilar">
+			<div class="pilar-icon">🏗️</div>
+			<h4>Conexão com Construtores</h4>
+			<p>Atuamos direto no campo, conectando fornecedores às demandas reais das obras e dos construtores.</p>
+		  </div>
+
+		  <!-- Pilar 3 -->
+		  <div class="pilar">
+			<div class="pilar-icon">🤝</div>
+			<h4>Representação Comercial</h4>
+			<p>Representamos empresas com soluções de valor, gerando acesso direto ao mercado da construção.</p>
+		  </div>
+		</div>
+	  </div>
+	</section>
 
     <section id="contato" class="contact">
         <div class="container">
@@ -643,6 +891,36 @@
         });
 
         window.addEventListener('scroll', animateOnScroll);
+		
+		window.addEventListener("scroll", function () {
+			const header = document.querySelector("header");
+			if (window.scrollY > 50) {
+			header.classList.add("scrolled");
+			} else {
+			header.classList.remove("scrolled");
+			}
+		});
+			const sobre = document.querySelector('.sobre-nos');
+			window.addEventListener('scroll', () => {
+			if (window.scrollY + window.innerHeight > sobre.offsetTop + 100) {
+			sobre.classList.add('show');
+			}
+		});
+		// Ativar animação dos pilares quando estiver visível na tela
+		const pilaresSection = document.querySelector('.pilares');
+		const tituloPilares = document.querySelector('.titulo-pilares');
+
+		window.addEventListener('scroll', () => {
+		  const sectionTop = pilaresSection.getBoundingClientRect().top;
+		  const windowHeight = window.innerHeight;
+
+		  if (sectionTop < windowHeight - 100) {
+			tituloPilares.classList.add('animate');
+		  }
+		});
+		
+		
+		
     </script>
 </body>
 </html>
