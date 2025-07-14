@@ -267,7 +267,7 @@
 		.socios h2 {
 		  font-family: 'Oswald', sans-serif;
 		  font-size: 3rem;
-		  margin-bottom: 60px;
+		  margin-bottom: 20px;
 		  text-align: center; /* ← garante que o título fique centralizado */
 		}
 
@@ -351,7 +351,9 @@
 		}
 
 		.pilares-container {
-		  position: relative;
+  position: relative;
+  padding-top: 0;
+  margin-top: -80px;
 		  z-index: 1;
 		  max-width: 1200px;
 		  margin: 0 auto;
@@ -372,8 +374,8 @@
 		  font-weight: 600;
 		  position: relative;
 		  display: inline-block;
-		  margin-top: -40px;
-		  margin-bottom: 30px;
+		  margin-top: -20px;
+		  margin-bottom: 20px;
 		  color: #ccc;
 		}
 
@@ -405,36 +407,32 @@
 
 		/* Animações */
 		@keyframes linha-baixo {
-		  from {
-			width: 0;
-			right: 0;
-			left: auto;
-		  }
-		  to {
-			width: 100%;
-			left: 0;
-			right: auto;
-		  }
-		}
+  from {
+    width: 0;
+    left: 100%;
+  }
+  to {
+    width: 100%;
+    left: 0;
+  }
+}
 
 		@keyframes linha-cima {
-		  from {
-			width: 0;
-			left: 0;
-			right: auto;
-		  }
-		  to {
-			width: 100%;
-			right: 0;
-			left: auto;
-		  }
-		}
+  from {
+    width: 0;
+    right: 100%;
+  }
+  to {
+    width: 100%;
+    right: 0;
+  }
+}
 
 
 		.pilares-container h2 {
 		  font-size: 2rem;
 		  font-weight: 700;
-		  margin-bottom: 60px;
+		  margin-bottom: 20px;
 		}
 
 		.pilares-grid {
@@ -667,7 +665,67 @@
 		
 		
 		
-    </style>
+    
+@media (max-width: 768px) {
+  .hero-box h1 {
+    font-size: 2rem;
+  }
+
+  .hero-box p {
+    font-size: 1.4rem;
+  }
+
+  .sobre-wrapper {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .sobre-imagem {
+    min-width: unset;
+    max-width: 90%;
+    margin-top: 20px;
+  }
+
+  .socios-container {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .card-socio {
+    min-height: auto;
+    padding: 20px 15px;
+  }
+
+  .pilares-grid {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .pilares-container h2 {
+    font-size: 1.5rem;
+  }
+
+  .titulo-pilares {
+    font-size: 1.3rem;
+    margin-top: -40px;
+  }
+
+  .pilar {
+    padding: 20px;
+    max-width: 100%;
+  }
+
+  .contact-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .nav-links {
+    display: none;
+  }
+}
+
+</style>
 </head>
 <body>
     <header>
