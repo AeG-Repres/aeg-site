@@ -6,6 +6,7 @@
     <title>AeG Representação - Construção Civil</title>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Roboto+Serif:opsz@8..144&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto+Condensed:wght@300&display=swap" rel="stylesheet">
@@ -338,7 +339,7 @@
 		  background-size: cover;
 		  background-position: center;
 		  background-attachment: fixed;
-		  padding: 100px 20px;
+		  padding: 100px 50px;
 		  position: relative;
 		}
 
@@ -351,9 +352,9 @@
 		}
 
 		.pilares-container {
-  position: relative;
-  padding-top: 0;
-  margin-top: -80px;
+		  position: relative;
+		  padding-top: 0;
+		  margin-top: -80px;
 		  z-index: 1;
 		  max-width: 1200px;
 		  margin: 0 auto;
@@ -365,16 +366,16 @@
 		  font-family: 'Oswald', sans-serif;
 		  font-size: 1.9rem;
 		  font-weight: 400;
-		  margin-bottom: 10px;
+		  margin-bottom: 70px;
 		  color: #fff;
 		}
 		.titulo-pilares {
 		  font-family: 'Playfair Display', serif;
-		  font-size: 1.6rem;
-		  font-weight: 600;
+		  font-size: 1.9rem;
+		  font-weight: 500;
 		  position: relative;
 		  display: inline-block;
-		  margin-top: -20px;
+		  margin-top: -30px;
 		  margin-bottom: 20px;
 		  color: #ccc;
 		}
@@ -407,26 +408,26 @@
 
 		/* Animações */
 		@keyframes linha-baixo {
-  from {
-    width: 0;
-    left: 100%;
-  }
-  to {
-    width: 100%;
-    left: 0;
-  }
-}
+		  from {
+			width: 0;
+			left: 100%;
+		  }
+		  to {
+			width: 100%;
+			left: 0;
+		  }
+		}
 
-		@keyframes linha-cima {
-  from {
-    width: 0;
-    right: 100%;
-  }
-  to {
-    width: 100%;
-    right: 0;
-  }
-}
+				@keyframes linha-cima {
+		  from {
+			width: 0;
+			right: 100%;
+		  }
+		  to {
+			width: 100%;
+			right: 0;
+		  }
+		}
 
 
 		.pilares-container h2 {
@@ -443,8 +444,8 @@
 		}
 
 		.pilar {
-		  flex: 1 1 300px;
-		  max-width: 350px;
+		  flex: 1 1 340px;
+		  max-width: 380px;
 		  padding: 30px 25px;
 		  background: rgba(255,255,255,0.06);
 		  border-radius: 16px;
@@ -469,6 +470,12 @@
 		  line-height: 1.6;
 		  color: #eee;
 		}
+		.pilar:hover {
+		  transform: translateY(-6px);
+		  box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+		  transition: all 0.3s ease;
+		}
+		
 		/*----------------animação----------------------------------------------*/
 		/* Sem animação por padrão */
 		.titulo-pilares .linha-decorativa::before,
@@ -490,23 +497,43 @@
         /*------------------------------Contato--------------------------------*/
 		
         /* Contact Section */
-        .contact {
-            padding: 80px 0;
-            background: #f8f9fa;
-        }
+		.contact {
+		  padding: 80px 20px;
+		  text-align: center;
+		  background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+		  background-size: cover;
+		  background-position: center;
+		  background-attachment: fixed;
+		  background-repeat: no-repeat;
+		  color: #000;
+		  font-weight: bold;
+		}
+		.contact input,
+		.contact textarea {
+		  background: rgba(255, 255, 255, 0.8); /* mais claro para destacar */
+		  color: #000;
+		  font-weight: bold;
+		  border: 1px solid #999;
+		}
+
+		.contact input::placeholder,
+		.contact textarea::placeholder {
+		  color: #555;
+		  font-weight: bold;
+		}
         
         .contact h2 {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            color: #2d3748;
+            color: #111;
         }
         
         .contact-subtitle {
             text-align: center;
             font-size: 1.2rem;
             margin-bottom: 3rem;
-            color: #666;
+            color: #111;
         }
         
         .contact-content {
@@ -533,8 +560,11 @@
             color: #2d3748;
         }
         
-        .form-group input,
-        .form-group textarea {
+        .form-group input:focus,
+        .form-group textarea:focus {
+		  border-color: #4a90e2;
+		  outline: none;
+		  box-shadow: 0 0 6px rgba(74, 144, 226, 0.4);
             width: 100%;
             padding: 12px;
             border: 1px solid #ddd;
@@ -547,21 +577,22 @@
             resize: vertical;
         }
         
-        .submit-btn {
-            background: #4a90e2;
-            color: white;
-            padding: 12px 30px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: bold;
-            transition: background 0.3s;
-        }
-        
-        .submit-btn:hover {
-            background: #357abd;
-        }
+		.submit-btn {
+		  background: #000;
+		  color: white;
+		  padding: 12px 30px;
+		  border: none;
+		  border-radius: 5px;
+		  cursor: pointer;
+		  font-size: 1rem;
+		  font-weight: bold;
+		  transition: background 0.3s;
+		}
+
+		.submit-btn:hover {
+		  background: #444;
+		}
+
         
         .contact-info {
             padding: 2rem;
@@ -575,7 +606,7 @@
         
         .contact-item {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             margin-bottom: 1rem;
             padding: 1rem;
             background: white;
@@ -666,64 +697,64 @@
 		
 		
     
-@media (max-width: 768px) {
-  .hero-box h1 {
-    font-size: 2rem;
-  }
+		@media (max-width: 768px) {
+		  .hero-box h1 {
+			font-size: 2rem;
+		  }
 
-  .hero-box p {
-    font-size: 1.4rem;
-  }
+		  .hero-box p {
+			font-size: 1.4rem;
+		  }
 
-  .sobre-wrapper {
-    flex-direction: column;
-    text-align: center;
-  }
+		  .sobre-wrapper {
+			flex-direction: column;
+			text-align: center;
+		  }
 
-  .sobre-imagem {
-    min-width: unset;
-    max-width: 90%;
-    margin-top: 20px;
-  }
+		  .sobre-imagem {
+			min-width: unset;
+			max-width: 90%;
+			margin-top: 20px;
+		  }
 
-  .socios-container {
-    flex-direction: column;
-    gap: 30px;
-  }
+		  .socios-container {
+			flex-direction: column;
+			gap: 30px;
+		  }
 
-  .card-socio {
-    min-height: auto;
-    padding: 20px 15px;
-  }
+		  .card-socio {
+			min-height: auto;
+			padding: 20px 15px;
+		  }
 
-  .pilares-grid {
-    flex-direction: column;
-    gap: 20px;
-  }
+		  .pilares-grid {
+			flex-direction: column;
+			gap: 20px;
+		  }
 
-  .pilares-container h2 {
-    font-size: 1.5rem;
-  }
+		  .pilares-container h2 {
+			font-size: 1.5rem;
+		  }
 
-  .titulo-pilares {
-    font-size: 1.3rem;
-    margin-top: -40px;
-  }
+		  .titulo-pilares {
+			font-size: 1.3rem;
+			margin-top: -40px;
+		  }
 
-  .pilar {
-    padding: 20px;
-    max-width: 100%;
-  }
+		  .pilar {
+			padding: 20px;
+			max-width: 100%;
+		  }
 
-  .contact-content {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-  }
+		  .contact-content {
+			grid-template-columns: 1fr;
+			gap: 2rem;
+		  }
 
-  .nav-links {
-    display: none;
-  }
-}
+		  .nav-links {
+			display: none;
+		  }
+		}
 
 </style>
 </head>
@@ -800,7 +831,7 @@
 	</section>
 
 
-	<section class="pilares" id="pilares">
+		<section class="pilares" id="servicos">
 	  <div class="pilares-container">
 		<h3 class="titulo-pilares">
 		  Nossos Pilares de Atuação
@@ -808,84 +839,100 @@
 		</h3>
 		<h2><strong>Atuação estratégica para impulsionar seus resultados</strong></h2>
 
+		<p style="max-width:700px; margin: 0 auto 40px; font-size:1.1rem; color:#ccc;">
+		  Nossos serviços ajudam sua empresa a ganhar visibilidade, gerar relacionamento com obras e expandir sua atuação no setor da construção civil.
+		</p>
+
 		<div class="pilares-grid">
 		  <!-- Pilar 1 -->
 		  <div class="pilar">
-			<div class="pilar-icon">📊</div>
+			<div class="pilar-icon" role="img" aria-label="Marketing Estratégico">
+			  <i class="fas fa-chart-line" aria-hidden="true"></i>
+			</div>
 			<h4>Marketing Estratégico</h4>
-			<p>Posicionamos sua marca com estratégia, visibilidade e comunicação alinhada ao setor da construção.</p>
+			<p>Posicionamos sua marca com estratégia, visibilidade e uma comunicação precisa voltada ao setor da construção civil.</p>
 		  </div>
 
 		  <!-- Pilar 2 -->
 		  <div class="pilar">
-			<div class="pilar-icon">🏗️</div>
+			<div class="pilar-icon" role="img" aria-label="Conexão com Construtores">
+			  <i class="fas fa-hard-hat" aria-hidden="true"></i>
+			</div>
 			<h4>Conexão com Construtores</h4>
-			<p>Atuamos direto no campo, conectando fornecedores às demandas reais das obras e dos construtores.</p>
+			<p>Atuamos diretamente em campo, conectando fornecedores às reais demandas de obras e construtores.</p>
 		  </div>
 
 		  <!-- Pilar 3 -->
 		  <div class="pilar">
-			<div class="pilar-icon">🤝</div>
+			<div class="pilar-icon" role="img" aria-label="Representação Comercial">
+			  <i class="fas fa-handshake" aria-hidden="true"></i>
+			</div>
 			<h4>Representação Comercial</h4>
-			<p>Representamos empresas com soluções de valor, gerando acesso direto ao mercado da construção.</p>
+			<p>Representamos empresas com soluções de alto valor, gerando acesso direto e qualificado ao mercado da construção civil.</p>
 		  </div>
 		</div>
 	  </div>
 	</section>
 
-    <section id="contato" class="contact">
-        <div class="container">
-            <h2>Fale Conosco</h2>
-            <p class="contact-subtitle">Estamos prontos para ajudar você!</p>
-            <div class="contact-content">
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <label for="nome">Nome</label>
-                            <input type="text" id="nome" name="nome" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="telefone">Telefone</label>
-                            <input type="tel" id="telefone" name="telefone" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="mensagem">Mensagem</label>
-                            <textarea id="mensagem" name="mensagem" required></textarea>
-                        </div>
-                        <button type="submit" class="submit-btn">Enviar Mensagem</button>
-                    </form>
-                </div>
-                <div class="contact-info">
-                    <h3>Informações de Contato</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>E-mail:</strong><br>
-                            contato@aegrepresentacao.com.br
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Localização:</strong><br>
-                            João Pessoa - PB
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-clock"></i>
-                        <div>
-                            <strong>Horário:</strong><br>
-                            Seg a Sex: 8h às 18h
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+			<section id="contato" class="contact">
+		  <div class="container">
+			<h2>Fale Conosco</h2>
+			<p class="contact-subtitle">Estamos prontos para ajudar você!</p>
+			<div class="contact-content">
+			  
+			  <!-- Formulário -->
+			  <div class="contact-form">
+				<form aria-label="Formulário de contato">
+				  <div class="form-group">
+					<label for="nome">Nome</label>
+					<input type="text" id="nome" name="nome" placeholder="Seu nome completo" required>
+				  </div>
+				  <div class="form-group">
+					<label for="email">E-mail</label>
+					<input type="email" id="email" name="email" placeholder="seuemail@exemplo.com" required>
+				  </div>
+				  <div class="form-group">
+					<label for="telefone">Telefone</label>
+					<input type="tel" id="telefone" name="telefone" placeholder="(00) 9 0000-0000" maxlength="16" required>
+				  </div>
+				  <div class="form-group">
+					<label for="mensagem">Mensagem</label>
+					<textarea id="mensagem" name="mensagem" placeholder="Descreva sua necessidade" required></textarea>
+				  </div>
+				  <button type="submit" class="submit-btn">Enviar Mensagem</button>
+				</form>
+			  </div>
+
+			  <!-- Informações -->
+			  <div class="contact-info">
+				<h3>Informações de Contato</h3>
+				<div class="contact-item">
+				  <i class="fas fa-envelope" aria-hidden="true"></i>
+				  <div>
+					<strong>E-mail:</strong><br>
+					<a href="mailto:contato@aegrepresentacao.com.br">contato@aegrepresentacao.com.br</a>
+				  </div>
+				</div>
+				<div class="contact-item">
+				  <i class="fas fa-map-marker-alt" aria-hidden="true"></i>
+				  <div>
+					<strong>Localização:</strong><br>
+					João Pessoa - PB
+				  </div>
+				</div>
+				<div class="contact-item">
+				  <i class="fas fa-clock" aria-hidden="true"></i>
+				  <div>
+					<strong>Horário:</strong><br>
+					Seg a Sex: 8h às 18h
+				  </div>
+				</div>
+			  </div>
+
+			</div>
+		  </div>
+		</section>
 
     <footer>
         <div class="container">
@@ -977,6 +1024,30 @@
 		  }
 		});
 		
+		  const telefoneInput = document.getElementById('telefone');
+
+		  telefoneInput.addEventListener('input', function (e) {
+			let value = e.target.value.replace(/\D/g, ''); // remove tudo que não for número
+
+			// Limita a 11 dígitos
+			if (value.length > 11) {
+			  value = value.slice(0, 11);
+			}
+
+			// Aplica a máscara dinamicamente
+			if (value.length <= 2) {
+			  value = value.replace(/^(\d{0,2})/, '($1');
+			} else if (value.length <= 7) {
+			  value = value.replace(/^(\d{2})(\d{0,1})/, '($1) $2');
+			} else if (value.length <= 11) {
+			  value = value.replace(/^(\d{2})(\d{1})(\d{0,4})/, '($1) $2 $3');
+			  if (value.length >= 13) {
+				value = value.replace(/^(\(\d{2}\) \d{1} \d{4})(\d{0,4})/, '$1-$2');
+			  }
+			}
+
+			e.target.value = value;
+		  });
 		
 		
     </script>
