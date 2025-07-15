@@ -1,0 +1,815 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* LOGO e HEADER */
+header {
+    background: transparent;
+    color: white;
+    padding: 1rem 0;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Quando rolar, essa classe será adicionada via JavaScript */
+header.scrolled {
+    background-color: #000000;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-family: 'Segoe UI', Tahoma, sans-serif;
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: white;
+}
+
+.logo img {
+    height: 55px;
+    margin-right: 10px;
+    border-radius: 8px;
+}
+
+.logo span {
+    color: white;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+    margin-left: auto;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav-links a:hover {
+    color: #4a90e2;
+}
+
+.menu-toggle {
+    display: none;
+    font-size: 1.8rem;
+    color: white;
+    cursor: pointer;
+}
+
+/* Hero Section */
+.hero {
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Image_fx.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding-bottom: 100px;
+    position: relative;
+}
+
+.hero-box {
+    background: white;
+    padding: 20px 20px;
+    border-radius: 0px;
+    text-align: center;
+    max-width: 800px;
+    width: 90%;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    margin-bottom: -110px;
+}
+
+.hero-box h1 {
+    font-family: 'DM Serif Text', serif;
+    font-size: 3.7rem;
+    font-weight: 400;
+    color: #111;
+    line-height: 1.1;
+    margin-bottom: 0px;
+}
+
+.hero-box p {
+    font-family: 'Markazi Text', serif;
+    font-size: 2.9rem;
+    font-weight: 400;
+    color: #111;
+    margin-bottom: 0px;
+}
+
+.cta-button-outline {
+    display: inline-block;
+    padding: 12px 30px;
+    border: 2px solid #000;
+    background: transparent;
+    color: #000;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    border-radius: 40px;
+    transition: all 0.3s ease;
+}
+
+.cta-button-outline:hover {
+    background: #000;
+    color: white;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+    animation: fadeInUp 1s ease-out;
+}
+
+.hero-content p {
+    font-size: 1.3rem;
+    margin-bottom: 2rem;
+    animation: fadeInUp 1s ease-out 0.3s both;
+}
+
+.cta-button {
+    background: #4a90e2;
+    color: white;
+    padding: 15px 30px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background 0.3s;
+    animation: fadeInUp 1s ease-out 0.6s both;
+}
+
+.cta-button:hover {
+    background: #357abd;
+}
+
+/*---------------------------------------------Sessão sobre----------------------------------------------------------*/
+.sobre-nos {
+    background-color: #f8f9fa;
+    padding: 80px 20px;
+}
+
+.sobre-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+    gap: 20px;
+}
+
+.sobre-texto {
+    flex: 1;
+    min-width: 300px;
+    font-family: 'Roboto Serif', Serif;
+    color: #111;
+    font-weight: 400;
+}
+
+.sobre-texto h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 500;
+    font-size: 2.2rem;
+    margin-bottom: 20px;
+    color: #000;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 10px;
+}
+
+.sobre-texto p {
+    font-size: 1.15rem;
+    line-height: 1.75;
+    margin-bottom: 18px;
+}
+
+.sobre-texto strong {
+    font-weight: 600;
+}
+
+.sobre-imagem {
+    flex: 1;
+    min-width: 550px;
+    display: flex;
+    justify-content: center;
+}
+
+.sobre-imagem img {
+    width: 100%;
+    max-width: 500px;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+.sobre-texto, .sobre-imagem {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s ease;
+}
+
+.sobre-nos.show .sobre-texto,
+.sobre-nos.show .sobre-imagem {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/*-------------------------------------------------socio-----------------------------------------------------*/
+.socios {
+    padding: 80px 20px;
+    text-align: center;
+    background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+.socios h2 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 3rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.socios-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 60px;
+}
+
+.card-socio {
+    background: #f9f9f9;
+    padding: 30px 20px;
+    border-radius: 20px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
+    max-width: 600px;
+    width: 100%;
+    text-align: center;
+    transition: transform 0.3s ease;
+    min-height: 420px;
+}
+
+.card-socio:hover {
+    transform: translateY(-6px);
+}
+
+.socio-foto {
+    width: 140px;
+    height: 140px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.card-socio h3 {
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+    font-weight: 600;
+    color: #111;
+}
+
+.card-socio .subtitulo {
+    color: #1a5bd1;
+    font-weight: 500;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.card-socio p {
+    font-size: 1.05rem;
+    line-height: 1.5;
+    margin-bottom: 6px;
+    color: #333;
+}
+
+/*------------------------------------------------serviço-----------------------------------------------*/
+.pilares {
+    background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    padding: 100px 50px;
+    position: relative;
+    width: 100vw;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    bov: hidden;
+}
+
+.pilares::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(135deg, rgba(30,30,30,0.9), rgba(50,50,50,0.9));
+    z-index: 0;
+}
+
+.pilares-container {
+    position: relative;
+    padding-top: 0;
+    margin-top: -80px;
+    z-index: 1;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+    color: #fff;
+}
+
+.pilares-container h3 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 1.9rem;
+    font-weight: 400;
+    margin-bottom: 70px;
+    color: #fff;
+}
+
+.titulo-pilares {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.9rem;
+    font-weight: 500;
+    position: relative;
+    display: inline-block;
+    margin-top: -30px;
+    margin-bottom: 20px;
+    color: #ccc;
+}
+
+.titulo-pilares .linha-decorativa::before,
+.titulo-pilares .linha-decorativa::after {
+    content: '';
+    position: absolute;
+    height: 2px;
+    background: #ffffff;
+    transition: width 0.8s ease;
+    width: 0;
+}
+
+.titulo-pilares .linha-decorativa::before {
+    bottom: -10px;
+    left: 0;
+    width: 0;
+    height: 4px;
+    animation: linha-baixo 1s forwards;
+}
+
+.titulo-pilares .linha-decorativa::after {
+    top: -10px;
+    right: 0;
+    width: 0;
+    height: 2px;
+    animation: linha-cima 1s forwards 1s;
+}
+
+@keyframes linha-baixo {
+    from {
+        width: 0;
+        left: 100%;
+    }
+    to {
+        width: 100%;
+        left: 0;
+    }
+}
+
+@keyframes linha-cima {
+    from {
+        width: 0;
+        right: 100%;
+    }
+    to {
+        width: 100%;
+        right: 0;
+    }
+}
+
+.pilares-container h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.pilares-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+.pilar {
+    flex: 1 1 340px;
+    max-width: 380px;
+    padding: 30px 25px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
+.pilar-icon {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.pilar h4 {
+    font-size: 1.3rem;
+    margin-bottom: 12px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.pilar p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #eee;
+}
+
+.pilar:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    transition: all 0.3s ease;
+}
+
+.titulo-pilares .linha-decorativa::before,
+.titulo-pilares .linha-decorativa::after {
+    animation: none;
+}
+
+.titulo-pilares.animate .linha-decorativa::before {
+    animation: linha-baixo 1s forwards;
+}
+
+.titulo-pilares.animate .linha-decorativa::after {
+    animation: linha-cima 1s forwards 1s;
+}
+
+/*------------------------------Contato--------------------------------*/
+.contact {
+    padding: 80px 20px;
+    text-align: center;
+    background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: scroll;
+    background-repeat: no-repeat;
+    color: #000;
+    font-weight: bold;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
+}
+
+.contact input,
+.contact textarea {
+    background: rgba(255, 255, 255, 0.8);
+    color: #000;
+    font-weight: bold;
+    border: 1px solid #999;
+}
+
+.contact input::placeholder,
+.contact textarea::placeholder {
+    color: #555;
+    font-weight: bold;
+}
+
+.contact h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: #111;
+}
+
+.contact-subtitle {
+    text-align: center;
+    font-size: 1.2rem;
+    margin-bottom: 3rem;
+    color: #111;
+}
+
+.contact-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.contact-form form {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.contact-form .form-group {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 1.2rem;
+}
+
+.contact-form input,
+.contact-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    transition: border 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+    border-color: #4a90e2;
+    box-shadow: 0 0 5px rgba(74, 144, 226, 0.4);
+    outline: none;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.submit-btn {
+    background: #000;
+    color: white;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+.submit-btn:hover {
+    background: #444;
+}
+
+.contact-info {
+    padding: 2rem;
+}
+
+.contact-info h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    color: #2d3748;
+}
+
+.contact-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+    padding: 1rem;
+    background: white;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.contact-item i {
+    font-size: 1.5rem;
+    color: #4a90e2;
+    margin-right: 1rem;
+}
+
+/* Footer */
+footer {
+    background: #1a1a1a;
+    color: white;
+    padding: 2rem 0;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.social-links a:hover {
+    color: #4a90e2;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        width: 100%;
+        background: #000;
+        padding: 1rem;
+    }
+    .nav-links.active {
+        display: flex;
+    }
+    .hero-box h1 {
+        font-size: 1.8rem;
+    }
+    .hero-box p {
+        font-size: 1.2rem;
+    }
+    .hero {
+        padding-bottom: 50px;
+    }
+    .hero-box {
+        margin-bottom: -50px;
+        padding: 15px;
+    }
+    .sobre-wrapper {
+        flex-direction: column;
+        text-align: center;
+    }
+    .sobre-imagem {
+        min-width: unset;
+        max-width: 90%;
+        margin-top: 20px;
+    }
+    .sobre-imagem img {
+        max-width: 80%;
+    }
+    .socios-container {
+        flex-direction: column;
+        gap: 20px;
+    }
+    .card-socio {
+        min-height: auto;
+        padding: 15px;
+        max-width: 90%;
+        margin: 0 auto 15px;
+    }
+    .socio-foto {
+        width: 90px;
+        height: 90px;
+    }
+    .pilares-grid {
+        flex-direction: column;
+        gap: 15px;
+    }
+    .pilares-container h2 {
+        font-size: 1.5rem;
+    }
+    .titulo-pilares {
+        font-size: 1.3rem;
+        margin-top: -40px;
+    }
+    .pilar {
+        padding: 15px;
+        max-width: 90%;
+        margin: 0 auto;
+    }
+    .contact-content {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    .contact-form, .contact-info {
+        padding: 1rem;
+    }
+    .contact-form input,
+    .contact-form textarea {
+        font-size: 0.9rem;
+        padding: 10px;
+    }
+    .submit-btn {
+        padding: 10px 20px;
+    }
+    .contact-item {
+        margin-bottom: 0.8rem;
+    }
+    .sobre-nos,
+    .socios,
+    .pilares,
+    .contact {
+        padding: 40px 15px;
+    }
+}
+
+/*------------------------rodape-----------------------------------------*/
+.rodape {
+    background-color: #1a1a1a;
+    color: white;
+    text-align: center;
+    padding: 2rem 1rem;
+}
+
+.container-rodape {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.redes-sociais {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+}
+
+.redes-sociais a {
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.3s ease;
+}
+
+.redes-sociais a:hover {
+    color: #4a90e2;
+}
+
+/*-----------------------------espaço em branco----------------------*/
+.espaco-branco {
+    height: 0px;
+    background-color: #fff;
+}

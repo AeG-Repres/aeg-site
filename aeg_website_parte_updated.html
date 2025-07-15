@@ -1,0 +1,192 @@
+<script type="text/javascript">
+        var gk_isXlsx = false;
+        var gk_xlsxFileLookup = {};
+        var gk_fileData = {};
+        function filledCell(cell) {
+          return cell !== '' && cell != null;
+        }
+        function loadFileData(filename) {
+        if (gk_isXlsx && gk_xlsxFileLookup[filename]) {
+            try {
+                var workbook = XLSX.read(gk_fileData[filename], { type: 'base64' });
+                var firstSheetName = workbook.SheetNames[0];
+                var worksheet = workbook.Sheets[firstSheetName];
+
+                // Convert sheet to JSON to filter blank rows
+                var jsonData = XLSX.utils.sheet_to_json(worksheet, { header: 1, blankrows: false, defval: '' });
+                // Filter out blank rows (rows where all cells are empty, null, or undefined)
+                var filteredData = jsonData.filter(row => row.some(filledCell));
+
+                // Heuristic to find the header row by ignoring rows with fewer filled cells than the next row
+                var headerRowIndex = filteredData.findIndex((row, index) =>
+                  row.filter(filledCell).length >= filteredData[index + 1]?.filter(filledCell).length
+                );
+                // Fallback
+                if (headerRowIndex === -1 || headerRowIndex > 25) {
+                  headerRowIndex = 0;
+                }
+
+                // Convert filtered JSON back to CSV
+                var csv = XLSX.utils.aoa_to_sheet(filteredData.slice(headerRowIndex)); // Create a new sheet from filtered array of arrays
+                csv = XLSX.utils.sheet_to_csv(csv, { header: 1 });
+                return csv;
+            } catch (e) {
+                console.error(e);
+                return "";
+            }
+        }
+        return gk_fileData[filename] || "";
+        }
+        </script><!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AeG Representação</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo">
+                    <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/teste2-Photoroom%20(1).png" alt="AeG Logo">
+                    <span>AeG Representação</span>
+                </div>
+                <div class="menu-toggle">☰</div>
+                <ul class="nav-links">
+                    <li><a href="#home">Início</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#socios">Sócios</a></li>
+                    <li><a href="#pilares">Serviços</a></li>
+                    <li><a href="#contact">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-box">
+            <h1>Conectando fornecedores a <br><span>construção civil</span></h1>
+            <p>Transforme seu negócio na construção civil</p>
+            <a href="#contact" class="cta-button-outline">Fale Conosco</a>
+        </div>
+    </section>
+
+    <section id="sobre" class="sobre-nos">
+        <div class="sobre-wrapper">
+            <div class="sobre-texto">
+                <h2>🏗️ Sobre a AeG Representação</h2>
+                <p>A AeG Representação é uma empresa especializada em conectar fornecedores da construção civil com obras, construtores e compradores reais.</p>
+                <p>Fundada em João Pessoa – PB pelos sócios Gilmar e Anderson, nossa missão é transformar a representação comercial em um elo estratégico, gerando resultados reais para quem vende e para quem constrói.</p>
+                <p>Atuamos com presença ativa em campo, marketing direcionado e relacionamento próximo, entendendo de fato as necessidades do setor.</p>
+                <p>Representamos empresas que oferecem soluções, materiais e inovações voltadas ao canteiro de obras — sempre com foco em parcerias sólidas, desempenho comercial e crescimento sustentável no mercado.</p>
+            </div>
+            <div class="sobre-imagem">
+                <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/main/Image_fx.png" alt="Construção Civil">
+            </div>
+        </div>
+    </section>
+
+    <section id="socios" class="socios">
+        <h2>Sócios Fundadores</h2>
+        <div class="socios-container">
+            <div class="card-socio">
+                <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Anderson.jpeg" alt="Anderson Santos" class="socio-foto">
+                <h3>Anderson Santos</h3>
+                <p class="subtitulo">Marketing com Método. Gestão com Propósito.</p>
+                <p>Mentor de negócios e gestor de tráfego com método próprio</p>
+                <p>R$ 2,5 milhões em vendas no digital</p>
+                <p>Idealizador do ArqDesign</p>
+                <p>Atua com estratégia, posicionamento e geração de resultado</p>
+            </div>
+            <div class="card-socio">
+                <img src="https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/Gilmar.jpg" alt="Gilmar Soares" class="socio-foto">
+                <h3>Gilmar Soares</h3>
+                <p class="subtitulo">Tecnologia, gestão e inovação no setor da construção</p>
+                <p>Formado em Redes de Computadores</p>
+                <p>Experiência técnica e prática em comércio e construção civil</p>
+                <p>Aplica gestão e tecnologia para impulsionar o setor</p>
+                <p>Conecta tradição à inovação com propósito</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="pilares" class="pilares">
+        <div class="pilares-container">
+            <h3 class="titulo-pilares"><span class="linha-decorativa">Nossos Pilares de Atuação</span></h3>
+            <h2>Atuação estratégica para impulsionar seus resultados</h2>
+            <p>Nossos serviços ajudam sua empresa a ganhar visibilidade, gerar relacionamento com obras e expandir sua atuação no setor da construção civil.</p>
+            <div class="pilares-grid">
+                <div class="pilar">
+                    <div class="pilar-icon">📈</div>
+                    <h4>Marketing Estratégico</h4>
+                    <p>Posicionamos sua marca com estratégia, visibilidade e uma comunicação precisa voltada ao setor da construção civil.</p>
+                </div>
+                <div class="pilar">
+                    <div class="pilar-icon">🤝</div>
+                    <h4>Conexão com Construtores</h4>
+                    <p>Atuamos diretamente em campo, conectando fornecedores às reais demandas de obras e construtores.</p>
+                </div>
+                <div class="pilar">
+                    <div class="pilar-icon">💼</div>
+                    <h4>Representação Comercial</h4>
+                    <p>Representamos empresas com soluções de alto valor, gerando acesso direto e qualificado ao mercado da construção civil.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <h2>Fale Conosco</h2>
+        <p class="contact-subtitle">Estamos prontos para ajudar você!</p>
+        <div class="contact-content">
+            <div class="contact-form">
+                <form>
+                    <div class="form-group">
+                        <input type="text" placeholder="Nome" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="email" placeholder="E-mail" required>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" id="telefone" placeholder="Telefone" required>
+                    </div>
+                    <div class="form-group">
+                        <textarea placeholder="Mensagem" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Enviar Mensagem</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Informações de Contato</h3>
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>E-mail: <br>contato@aegrepresentacao.com.br</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Localização: <br>João Pessoa - PB</p>
+                </div>
+                <div class="contact-item">
+                    <i class="fas fa-clock"></i>
+                    <p>Horário: <br>Seg a Sex: 8h às 18h</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="rodape">
+        <div class="container-rodape">
+            <p>© 2025 AeG Representação. Todos os direitos reservados.</p>
+            <div class="redes-sociais">
+                <a href="#"><i class="fab fa-shopify"></i> Loja</a>
+                <a href="#"><i class="fab fa-instagram"></i> Marca</a>
+                <a href="#"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
