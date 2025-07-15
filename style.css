@@ -816,3 +816,21 @@ footer {
     height: 0px;
     background-color: #fff;
 }
+
+/*-------------------------------------------whats-----------------------------------*/
+.whatsapp-float {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #25d366;
+  color: white;
+  font-size: 28px;
+  padding: 14px 16px;
+  border-radius: 50%;
+  z-index: 999;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  transition: background 0.3s;
+}
+.whatsapp-float:hover {
+  background-color: #1ebc5e;
+}
