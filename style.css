@@ -35,7 +35,6 @@ header {
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* Quando rolar, essa classe será adicionada via JavaScript */
 header.scrolled {
     background-color: #000000;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
@@ -255,7 +254,7 @@ nav {
     background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     width: 100vw;
     position: relative;
@@ -334,7 +333,7 @@ nav {
     background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: scroll;
+    background-attachment: fixed;
     padding: 100px 50px;
     position: relative;
     width: 100vw;
@@ -342,7 +341,7 @@ nav {
     right: 50%;
     margin-left: -50vw;
     margin-right: -50vw;
-    bov: hidden;
+    overflow: hidden;
 }
 
 .pilares::before {
@@ -384,7 +383,7 @@ nav {
 }
 
 .titulo-pilares .linha-decorativa::before,
-.titulo-pilares .linha-decorativa::after {
+-catch .titulo-pilares .linha-decorativa::after {
     content: '';
     position: absolute;
     height: 2px;
@@ -498,7 +497,7 @@ nav {
     background-image: url('https://raw.githubusercontent.com/AeG-Repres/aeg-site/refs/heads/main/imagenfundos.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: scroll;
+    background-attachment: fixed;
     background-repeat: no-repeat;
     color: #000;
     font-weight: bold;
@@ -770,6 +769,9 @@ footer {
     .pilares,
     .contact {
         padding: 40px 15px;
+    }
+    .socios, .pilares, .contact {
+        background-attachment: scroll;
     }
 }
 
